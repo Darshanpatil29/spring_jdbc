@@ -1,0 +1,13 @@
+package com.spring_jdbc;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World this is Spring JDBC Tutorial!" );
+    }
+}
