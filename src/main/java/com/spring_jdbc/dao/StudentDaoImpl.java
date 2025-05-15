@@ -4,13 +4,17 @@ import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.spel.ast.Literal;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.spring_jdbc.entities.Student;
 
+@Component("studentDaoImpl")
 public class StudentDaoImpl implements StudentDao {
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	public int insert(Student student) {
 		String query="insert into student(id,name,city) values (?,?,?)";
