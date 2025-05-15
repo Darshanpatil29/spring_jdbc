@@ -9,5 +9,14 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
            https://www.springframework.org/schema/context/spring-context.xsd">
-  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.jdbcTemplate"/>
+   <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="dataSource"
+	p:driverClassName="" p:url="" p:username="" p:password="" />
+	
+  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.jdbcTemplate" p:dataSource-ref="dataSource"/>
+  
+  <bean name="studentDaoImpl" class="com.spring_jdbc.dao.StudentDaoImpl">
+  		<property name="jdbcTemplate">
+  			<ref bean="jdbcTemplate"/>
+  		</property>
+  </bean>
 </beans>
